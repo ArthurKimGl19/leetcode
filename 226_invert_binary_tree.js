@@ -29,3 +29,19 @@ var invertTree = function(root) {
 
     //Time Complexity O(n), Space Complexity O(1);
 };
+
+
+var invertTree = function(root) {
+    if (!root) return root;
+
+    const left = root.left;
+    const right = root.right;
+
+    root.right = left;
+    root.left = right;
+
+    invertTree(root.right);
+    invertTree(root.left);
+    return root;
+};
+//Time Complexity O(n), Space Complexity O(1)
